@@ -1,0 +1,85 @@
+public class Persona {
+    private String nombre;
+    private int edad;
+    private double altura;
+    private double peso;
+    private String nacionalidad;
+    private String ocupacion;
+    private String curp;
+    private String[] hobbies;
+
+    public Persona(String nombre, int edad, double altura, double peso, String nacionalidad, String ocupacion, String curp, String[] hobbies) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.altura = altura;
+        this.peso = peso;
+        this.nacionalidad = nacionalidad;
+        this.ocupacion = ocupacion;
+        this.curp = curp;
+        this.hobbies = hobbies;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getNacionalidad() {
+        return nacionalidad;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+    public String getCurp() {
+        return curp;
+    }
+
+    public void setCurp(String curp) {
+        this.curp = curp;
+    }
+
+    public String[] getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String[] hobbies) {
+        this.hobbies = hobbies;
+    }
+}
