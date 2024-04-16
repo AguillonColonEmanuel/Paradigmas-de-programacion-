@@ -1,0 +1,58 @@
+class Persona:
+    def __init__(self, nombre, edad, altura, peso, nacionalidad, ocupacion, curp, hobbies):
+        self.nombre = nombre
+        self.edad = edad
+        self.altura = altura
+        self.peso = peso
+        self.nacionalidad = nacionalidad
+        self.ocupacion = ocupacion
+        self.curp = curp
+        self.hobbies = hobbies
+
+    def get_nombre(self):
+        return self.nombre
+
+    def set_nombre(self, nombre):
+        self.nombre = nombre
+
+    def get_edad(self):
+        return self.edad
+
+    def set_edad(self, edad):
+        self.edad = edad
+
+    def get_altura(self):
+        return self.altura
+
+    def set_altura(self, altura):
+        self.altura = altura
+
+    def get_peso(self):
+        return self.peso
+
+    def set_peso(self, peso):
+        self.peso = peso
+
+    def get_nacionalidad(self):
+        return self.nacionalidad
+
+    def set_nacionalidad(self, nacionalidad):
+        self.nacionalidad = nacionalidad
+
+    def get_ocupacion(self):
+        return self.ocupacion
+
+    def set_ocupacion(self, ocupacion):
+        self.ocupacion = ocupacion
+
+    def get_curp(self):
+        return self.curp
+
+    def set_curp(self, curp):
+        self.curp = curp
+
+    def get_hobbies(self):
+        return self.hobbies
+
+    def set_hobbies(self, hobbies):
+        self.hobbies = hobbies
