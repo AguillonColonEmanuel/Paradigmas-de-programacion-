@@ -1,0 +1,60 @@
+edad(roberto,95).
+edad(isabel,87).
+edad(ana,57).
+edad(marcelo,61).
+edad(martin,37).
+edad(sara,32).
+edad(matias,5).
+edad(estefano,2).
+edad(amalia,48).
+edad(oscar,37).
+edad(andrea,34).
+edad(esteban,17).
+edad(tiziana,5).
+
+padre(roberto, amalia).
+padre(roberto, ana).
+padre(roberto, oscar).
+padre(oscar, tiziana).
+padre(oscar, esteban).
+padre(marcelo, martin).
+padre(martin, matias).
+padre(martin, estefano).
+
+padre(isabel, amalia).
+padre(isabel, ana).
+padre(isabel, oscar).
+padre(andrea, tiziana).
+padre(andrea, esteban).
+padre(ana, martin).
+padre(sara, matias).
+padre(sara, estefano).
+
+esposo(roberto,isabel).
+esposo(marcelo,ana).
+esposo(martin,sara).
+esposo(oscar,andrea).
+
+
+bebe(X) :- edad(X, Edad), Edad =< 2.
+nino(X) :- edad(X, Edad), Edad >= 3, Edad =< 9.
+adolescente(X) :- edad(X, Edad), Edad >= 10, Edad =< 20.
+adulto(X) :- edad(X, Edad), Edad >= 21, Edad =< 69.
+anciano(X) :- edad(X, Edad), Edad >= 70.
+
+% Edades
+es_mayor_que(X, Y) :- edad(X, EdadX), edad(Y, EdadY), EdadX > EdadY.
+es_menor_que(X, Y) :- edad(X, EdadX), edad(Y, EdadY), EdadX < EdadY.
+misma_edad(X, Y) :- edad(X, EdadX), edad(Y, EdadY), EdadX == EdadY,X\==Y.
+
+% Parentescos
+hermano(X, Y) :- padre(Z, X), padre(Z, Y), X \== Y.
+hijo(X, Y) :- padre(Y, X).
+tio(X, Y) :- hermano(X, Z), padre(Z, Y).
+sobrino(X, Y) :- tio(Y, X).
+primo(X, Y) :- padre(Z, X), tio(Z, Y).
+abuelo(X, Y) :- padre(X, Z), padre(Z, Y).
+nieto(X, Y) :- abuelo(Y, X).
+bisabuelo(X, Y) :- padre(X, Z), abuelo(Z, Y).
+bisnieto(X, Y) :- bisabuelo(Y, X).
+cunado(X, Y) :- esposo(X, Z), hermano(Z, Y).
