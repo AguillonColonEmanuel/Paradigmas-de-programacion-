@@ -1,0 +1,124 @@
+import math
+
+class HexagonoRegular:
+    def __init__(self, color, lado):
+        self.__color = color
+        self.__lado = lado
+
+    def get_color(self):
+        return self.__color
+
+    def get_lado(self):
+        return self.__lado
+
+    def get_area(self):
+        return self.__area()
+
+    def get_perimetro(self):
+        return self.__perimetro()
+
+    def __area(self):
+        return 3 * math.sqrt(3) * (self.__lado ** 2) / 2
+
+    def __perimetro(self):
+        return 6 * self.__lado
+
+
+class Rombo:
+    def __init__(self, color, diagonal_mayor, diagonal_menor):
+        self.__color = color
+        self.__diagonal_mayor = diagonal_mayor
+        self.__diagonal_menor = diagonal_menor
+
+    def get_color(self):
+        return self.__color
+
+    def get_diagonal_mayor(self):
+        return self.__diagonal_mayor
+
+    def get_diagonal_menor(self):
+        return self.__diagonal_menor
+
+    def get_area(self):
+        return self.__area()
+
+    def get_perimetro(self):
+        return 4 * self.__diagonal_menor
+
+    def __area(self):
+        return (self.__diagonal_mayor * self.__diagonal_menor) / 2
+
+
+class Trapecio:
+    def __init__(self, color, base_mayor, base_menor, altura):
+        self.__color = color
+        self.__base_mayor = base_mayor
+        self.__base_menor = base_menor
+        self.__altura = altura
+
+    def get_color(self):
+        return self.__color
+
+    def get_base_mayor(self):
+        return self.__base_mayor
+
+    def get_base_menor(self):
+        return self.__base_menor
+
+    def get_altura(self):
+        return self.__altura
+
+    def get_area(self):
+        return self.__area()
+
+    def get_perimetro(self):
+        return self.__perimetro()
+
+    def __area(self):
+        return ((self.__base_mayor + self.__base_menor) * self.__altura) / 2
+
+    def __perimetro(self):
+        lado = math.sqrt(((self.__base_mayor - self.__base_menor) / 2) ** 2 + self.__altura ** 2)
+        return self.__base_mayor + self.__base_menor + 2 * lado
+
+
+# Solicitar datos al usuario para crear un hexágono regular
+color_hexagono = input("Ingrese el color del hexágono regular: ")
+lado_hexagono = float(input("Ingrese la longitud del lado del hexágono regular: "))
+hexagono = HexagonoRegular(color_hexagono, lado_hexagono)
+
+# Solicitar datos al usuario para crear un rombo
+color_rombo = input("\nIngrese el color del rombo: ")
+diagonal_mayor_rombo = float(input("Ingrese la longitud de la diagonal mayor del rombo: "))
+diagonal_menor_rombo = float(input("Ingrese la longitud de la diagonal menor del rombo: "))
+rombo = Rombo(color_rombo, diagonal_mayor_rombo, diagonal_menor_rombo)
+
+# Solicitar datos al usuario para crear un trapecio
+color_trapecio = input("\nIngrese el color del trapecio: ")
+base_mayor_trapecio = float(input("Ingrese la longitud de la base mayor del trapecio: "))
+base_menor_trapecio = float(input("Ingrese la longitud de la base menor del trapecio: "))
+altura_trapecio = float(input("Ingrese la altura del trapecio: "))
+trapecio = Trapecio(color_trapecio, base_mayor_trapecio, base_menor_trapecio, altura_trapecio)
+
+# Mostrar resultados
+print("\nResultados:")
+print("Hexágono Regular:")
+print("Color:", hexagono.get_color())
+print("Lado:", hexagono.get_lado())
+print("Área:", hexagono.get_area())
+print("Perímetro:", hexagono.get_perimetro())
+
+print("\nRombo:")
+print("Color:", rombo.get_color())
+print("Diagonal Mayor:", rombo.get_diagonal_mayor())
+print("Diagonal Menor:", rombo.get_diagonal_menor())
+print("Área:", rombo.get_area())
+print("Perímetro:", rombo.get_perimetro())
+
+print("\nTrapecio:")
+print("Color:", trapecio.get_color())
+print("Base Mayor:", trapecio.get_base_mayor())
+print("Base Menor:", trapecio.get_base_menor())
+print("Altura:", trapecio.get_altura())
+print("Área:", trapecio.get_area())
+print("Perímetro:", trapecio.get_perimetro())
