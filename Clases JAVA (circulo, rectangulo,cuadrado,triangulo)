@@ -1,0 +1,223 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Crear un círculo
+        System.out.println("Ingrese el color del círculo:");
+        String colorCirculo = scanner.nextLine();
+        System.out.println("Ingrese el radio del círculo:");
+        double radioCirculo = scanner.nextDouble();
+        scanner.nextLine(); // Limpiar el buffer de entrada
+
+        Circulo circulo = new Circulo(colorCirculo, radioCirculo);
+
+        // Crear un rectángulo
+        System.out.println("Ingrese el color del rectángulo:");
+        String colorRectangulo = scanner.nextLine();
+        System.out.println("Ingrese la base del rectángulo:");
+        double baseRectangulo = scanner.nextDouble();
+        System.out.println("Ingrese la altura del rectángulo:");
+        double alturaRectangulo = scanner.nextDouble();
+        scanner.nextLine(); // Limpiar el buffer de entrada
+
+        Rectangulo rectangulo = new Rectangulo(colorRectangulo, baseRectangulo, alturaRectangulo);
+
+        // Crear un cuadrado
+        System.out.println("Ingrese el color del cuadrado:");
+        String colorCuadrado = scanner.nextLine();
+        System.out.println("Ingrese el lado del cuadrado:");
+        double ladoCuadrado = scanner.nextDouble();
+        scanner.nextLine(); // Limpiar el buffer de entrada
+
+        Cuadrado cuadrado = new Cuadrado(colorCuadrado, ladoCuadrado);
+
+        // Crear un triángulo
+        System.out.println("Ingrese el color del triángulo:");
+        String colorTriangulo = scanner.nextLine();
+        System.out.println("Ingrese el lado 1 del triángulo:");
+        double lado1Triangulo = scanner.nextDouble();
+        System.out.println("Ingrese el lado 2 del triángulo:");
+        double lado2Triangulo = scanner.nextDouble();
+        System.out.println("Ingrese el lado 3 del triángulo:");
+        double lado3Triangulo = scanner.nextDouble();
+
+        Triangulo triangulo = new Triangulo(colorTriangulo, lado1Triangulo, lado2Triangulo, lado3Triangulo);
+
+        // Imprimir resultados
+        System.out.println("\nResultados:");
+        System.out.println("Círculo:");
+        System.out.println("Color: " + circulo.getColor());
+        System.out.println("Área: " + circulo.getArea());
+        System.out.println("Perímetro: " + circulo.getPerimetro());
+
+        System.out.println("\nRectángulo:");
+        System.out.println("Color: " + rectangulo.getColor());
+        System.out.println("Área: " + rectangulo.getArea());
+        System.out.println("Perímetro: " + rectangulo.getPerimetro());
+
+        System.out.println("\nCuadrado:");
+        System.out.println("Color: " + cuadrado.getColor());
+        System.out.println("Área: " + cuadrado.getArea());
+        System.out.println("Perímetro: " + cuadrado.getPerimetro());
+
+        System.out.println("\nTriángulo:");
+        System.out.println("Color: " + triangulo.getColor());
+        System.out.println("Área: " + triangulo.getArea());
+        System.out.println("Perímetro: " + triangulo.getPerimetro());
+
+        scanner.close();
+    }
+}
+
+
+ class Circulo {
+    private String color;
+    private double radio;
+
+    public Circulo(String color, double radio) {
+        this.color = color;
+        this.radio = radio;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getArea() {
+        return area();
+    }
+
+    public double getPerimetro() {
+        return perimetro();
+    }
+
+    private double area() {
+        return Math.PI * Math.pow(radio, 2);
+    }
+
+    private double perimetro() {
+        return 2 * Math.PI * radio;
+    }
+}
+
+class Rectangulo {
+    private String color;
+    private double base;
+    private double altura;
+
+    public Rectangulo(String color, double base, double altura) {
+        this.color = color;
+        this.base = base;
+        this.altura = altura;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getBase() {
+        return base;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public double getArea() {
+        return area();
+    }
+
+    public double getPerimetro() {
+        return perimetro();
+    }
+
+    private double area() {
+        return base * altura;
+    }
+
+    private double perimetro() {
+        return 2 * (base + altura);
+    }
+}
+
+ class Cuadrado {
+    private String color;
+    private double lado;
+
+    public Cuadrado(String color, double lado) {
+        this.color = color;
+        this.lado = lado;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getLado() {
+        return lado;
+    }
+
+    public double getArea() {
+        return area();
+    }
+
+    public double getPerimetro() {
+        return perimetro();
+    }
+
+    private double area() {
+        return Math.pow(lado, 2);
+    }
+
+    private double perimetro() {
+        return 4 * lado;
+    }
+}
+class Triangulo {
+    private String color;
+    private double lado1;
+    private double lado2;
+    private double lado3;
+
+    public Triangulo(String color, double lado1, double lado2, double lado3) {
+        this.color = color;
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        this.lado3 = lado3;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public double getLado1() {
+        return lado1;
+    }
+
+    public double getLado2() {
+        return lado2;
+    }
+
+    public double getLado3() {
+        return lado3;
+    }
+
+    public double getArea() {
+        return area();
+    }
+
+    public double getPerimetro() {
+        return perimetro();
+    }
+
+    private double area() {
+        double s = (lado1 + lado2 + lado3) / 2;
+        return Math.sqrt(s * (s - lado1) * (s - lado2) * (s - lado3));
+    }
+
+    private double perimetro() {
+        return lado1 + lado2 + lado3;
+    }
+}
