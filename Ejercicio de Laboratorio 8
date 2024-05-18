@@ -1,0 +1,60 @@
+import java.io.*;
+
+class LecturaNumeros extends BufferedReader {
+
+    public LecturaNumeros() {
+        super(new InputStreamReader(System.in));
+    }
+
+    public LecturaNumeros(Reader r) {
+        super(r);
+    }
+
+    public int readInt() throws IOException {
+        return Integer.parseInt(readLine());
+    }
+
+    public int readInt(String mensaje) throws IOException {
+        System.out.print(mensaje);
+        return readInt();
+    }
+
+    public Integer readInteger() throws IOException {
+        return Integer.valueOf(readLine());
+    }
+
+    public Integer readInteger(String mensaje) throws IOException {
+        System.out.print(mensaje);
+        return readInteger();
+    }
+
+    public double readDouble() throws IOException {
+        return Double.parseDouble(readLine());
+    }
+
+    public double readDouble(String mensaje) throws IOException {
+        System.out.print(mensaje);
+        return readDouble();
+    }
+
+    public static void main(String[] args) {
+        try {
+            LecturaNumeros ln = new LecturaNumeros();
+            
+            int num1 = ln.readInt("Ingrese el primer numero entero: ");
+            int num2 = ln.readInt("Ingrese el segundo numero entero: ");
+            Integer num3 = ln.readInteger("Ingrese el tercer numero entero (Integer): ");
+            double num4 = ln.readDouble("Ingrese el cuarto numero decimal (double): ");
+            double num5 = ln.readDouble("Ingrese el quinto numero decimal (Double): ");
+            
+            System.out.println("Numeros ingresados:");
+            System.out.println("Primer numero entero: " + num1);
+            System.out.println("Segundo numero entero: " + num2);
+            System.out.println("Tercer numero entero (Integer): " + num3);
+            System.out.println("Cuarto numero decimal (double): " + num4);
+            System.out.println("Quinto numero decimal (Double): " + num5);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
